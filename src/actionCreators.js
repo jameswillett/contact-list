@@ -45,7 +45,7 @@ export function handleSubmit(contact) {
       },
     } = getState();
 
-    const id = contact.id || contactList.length + 1;  
+    const id = contact.id || contactList.reduce((a, { id }) => a > id ? a : id, 0) + 1;  
     
     dispatch({ 
       type: SUBMIT_UPDATED_CONTACT, 
