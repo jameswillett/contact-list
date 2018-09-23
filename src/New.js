@@ -1,20 +1,18 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import EditContactForm from './EditContactForm';
-import { handleSubmit, discardChanges } from './actionCreators';
 
-const NewContact = (props) => {
+const NewContact = ({ handleSubmit, discardChanges }) => {
   return (
     <div className="newcontact">
       <h1>NEW CONTACT</h1>
       <EditContactForm
         contact={{}}
-        handleSubmit={props.handleSubmit}
-        discardChanges={props.discardChanges}
+        handleSubmit={handleSubmit}
+        discardChanges={discardChanges}
         newContact
       />
     </div>
   )
 }
 
-export default connect(state => state, { handleSubmit, discardChanges })(NewContact)
+export default NewContact;
