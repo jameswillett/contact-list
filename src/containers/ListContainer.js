@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { sortBy, prop } from 'ramda';
+import { sortBy, prop, pipe, toLower, identity } from 'ramda';
 import List from '../components/List';
 import {
   getContactList,
@@ -9,13 +9,15 @@ import {
   setSortProp,
 } from '../actions/actionCreators';
 
+const sortFn = (p, list) => sortBy(pipe(prop(p), p === 'name' ? toLower : identity), list);
+
 const mapStateToProps = ({ contacts }) => ({
   loading: contacts.loading,
   loaded: contacts.loaded,
   error: contacts.error,
   sortBy: contacts.sortBy,
   newContact: contacts.newContact,
-  contacts: sortBy(prop(contacts.sortBy), contacts.contactList).filter(c => c.active),
+  contacts: sortFn(contacts.sortBy, contacts.contactList).filter(c => c.active),
 });
 
 const mapDispatchToProps = {
