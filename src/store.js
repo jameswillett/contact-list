@@ -3,7 +3,7 @@ import { connectRoutes } from 'redux-first-router';
 import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { reducer as formReducer } from 'redux-form';
-import contacts from './reducer';
+import contacts from './reducers/reducer';
 
 const routesMap = {
   LIST: '/',
