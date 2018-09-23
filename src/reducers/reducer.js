@@ -48,6 +48,7 @@ export default function reducer(state = initialState, action) {
     case SUBMIT_UPDATED_CONTACT:
       return {
         ...state,
+        error: null,
         contactList: [
           ...state.contactList.filter(({ id }) => id !== action.contact.id),
           action.contact,
