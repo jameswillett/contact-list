@@ -10,8 +10,11 @@ const makeTheNumberPretty = ({ phone }) => {
   return '';
 }
 
+const randomPrettyBackgroundColor = () => '#' + Array(3).fill(0).map(_ => (Math.floor(Math.random() * 5) + 8).toString(16)).join('');
+
 const makeTheContactPretty = contact => ({
   ...contact,
+  background: randomPrettyBackgroundColor(),
   id: parseInt(contact.id, 10),
   name: makeTheNamePretty(contact),
   phone: makeTheNumberPretty(contact),

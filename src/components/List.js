@@ -2,9 +2,9 @@ import React from 'react';
 import { push as pushState } from 'redux-first-router';
 
 const DisplayContact = (props) => {
-  const { contact, deleteContact, editing } = props;
+  const { contact, deleteContact, editing, background } = props;
   return (
-    <div>
+    <div style={{ background: contact.background, margin: '0 30%', padding: '15px 0px' }}>
       <div>{contact.name}</div>
     <div><a href={`mailto:${contact.email}`}>{contact.email}</a></div>
       <div>{contact.phone}</div>
