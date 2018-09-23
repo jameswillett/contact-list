@@ -20,12 +20,12 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case 'CONTACT_LIST_REQUEST':
+    case CONTACT_LIST_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case 'CONTACT_LIST_SUCCESS':
+    case CONTACT_LIST_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -33,19 +33,19 @@ export default function reducer(state = initialState, action) {
         error: null,
         contactList: action.contacts.map(pipe(makeTheContactPretty, merge({ 'active': true }))),
       };
-    case 'CONTACT_LIST_FAIL':
+    case CONTACT_LIST_FAIL:
       return {
         ...state,
         loading: false,
         loaded: true,
         error: action.error.message,
       };
-    case 'DELETE_CONTACT':
+    case DELETE_CONTACT:
       return {
         ...state,
         contactList: state.contactList.map((c) => c.id !== action.id ? c : set(lensProp('active'), false, c)),
       };
-    case 'SUBMIT_UPDATED_CONTACT':
+    case SUBMIT_UPDATED_CONTACT:
       return {
         ...state,
         contactList: [
@@ -53,7 +53,7 @@ export default function reducer(state = initialState, action) {
           action.contact,
         ]
       };
-    case 'SET_SORT_PROP':
+    case SET_SORT_PROP:
       return {
         ...state,
         sortBy: action.sortBy,
