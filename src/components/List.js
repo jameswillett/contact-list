@@ -2,7 +2,7 @@ import React from 'react';
 import { push as pushState } from 'redux-first-router';
 
 const DisplayContact = (props) => {
-  const { contact, deleteContact, editing, background } = props;
+  const { contact, deleteContact, editing } = props;
   return (
     <div style={{ background: contact.background, margin: '0 30%', padding: '15px 0px' }}>
       <div>{contact.name}</div>
@@ -52,14 +52,14 @@ const List = (props) => {
 
       { hasContacts &&
           <div>
-          { contacts.map(contact => (
-            <div key={`contact-${contact.id}`} style={{ padding: "20px" }}>
-              <DisplayContact
-                contact={contact}
-                deleteContact={deleteContact}
-              />
-            </div>
-          ))}
+            { contacts.map(contact => (
+              <div key={`contact-${contact.id}`} style={{ padding: "20px" }}>
+                <DisplayContact
+                  contact={contact}
+                  deleteContact={deleteContact}
+                />
+              </div>
+            ))}
           </div>
       }
 

@@ -13,7 +13,7 @@ const Edit = ({ discardChanges, handleSubmit, contact, id }) => {
           />
       }
 
-      {!contact &&
+      { !contact &&
         <div>No contact found with id of { id } ¯\_(ツ)_/¯</div>
       }
     </div>

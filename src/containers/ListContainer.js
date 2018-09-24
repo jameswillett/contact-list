@@ -1,13 +1,7 @@
 import { connect } from 'react-redux';
 import { sortBy, prop, pipe, toLower, identity } from 'ramda';
 import List from '../components/List';
-import {
-  getContactList,
-  deleteContact,
-  discardChanges,
-  handleSubmit,
-  setSortProp,
-} from '../actions/actionCreators';
+import { deleteContact, setSortProp } from '../actions/actionCreators';
 
 const sortFn = (p, list) => sortBy(pipe(prop(p), p === 'name' ? toLower : identity), list);
 
@@ -21,10 +15,7 @@ const mapStateToProps = ({ contacts }) => ({
 });
 
 const mapDispatchToProps = {
-  getContactList,
   deleteContact,
-  discardChanges,
-  handleSubmit,
   setSortProp,
 };
 

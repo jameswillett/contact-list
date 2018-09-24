@@ -20,7 +20,6 @@ const ContactForm = ({ handleSubmit }) => (
       <Field
         name='name'
         component={renderField} label='Full Name' placeholder='First and Last (eg. "John Smith")'
-        type='text'
         validate={[ required ]}
       />
     </div>
@@ -28,17 +27,15 @@ const ContactForm = ({ handleSubmit }) => (
       <Field
         name='email'
         component={renderField} label='Email Address' placeholder='john@smith.com'
-        type='text'
         validate={[ required ]}
       />
     </div>
     <div>
       <Field
         name='phone'
-          component={renderField} label='Phone number' placeholder='2028765309'
-          type='text'
-          validate={[ required, validPhone ]}
-        />
+        component={renderField} label='Phone number' placeholder='2028765309'
+        validate={[ required, validPhone ]}
+      />
     </div>
     <div>
       <button type='submit' onClick={ handleSubmit }>Submit</button>
