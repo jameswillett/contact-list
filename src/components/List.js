@@ -65,7 +65,7 @@ const List = (props) => {
 
       { error &&
           <div>
-            Something went wrong! the internet told us this is the problem: <strong>{error}</strong>. You can still add contacts tho.
+            Something went wrong! the internet told us this is the problem: <strong>{error.message}</strong>. You can still add contacts tho.
           </div>
       }
     </div>

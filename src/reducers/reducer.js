@@ -38,7 +38,7 @@ export default function reducer(state = initialState, action) {
         ...state,
         loading: false,
         loaded: true,
-        error: action.error.message,
+        error: action.error,
       };
     case DELETE_CONTACT:
       return {
