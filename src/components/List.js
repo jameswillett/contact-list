@@ -20,8 +20,6 @@ const DisplayContact = (props) => {
 const List = (props) => {
   const {
     //state
-    loaded,
-    loading,
     contacts,
     error,
     sortBy,
@@ -31,8 +29,8 @@ const List = (props) => {
     setSortProp,
   } = props;
   
-  const noContacts = loaded && !loading && !error && contacts.length === 0;
-  const hasContacts = loaded && !loading && !error && !noContacts;
+  const noContacts = !error && contacts.length === 0;
+  const hasContacts = !error && !noContacts;
 
   return (
     <div className="list">
@@ -45,10 +43,6 @@ const List = (props) => {
         </select>
       </div>
       <button onClick={() => pushState('/new')}>Create New Contact</button>
-
-      { loading &&
-        <div>Getting Contacts...</div>
-      }
 
       { hasContacts &&
           <div>

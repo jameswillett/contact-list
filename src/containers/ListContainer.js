@@ -1,13 +1,15 @@
 import { connect } from 'react-redux';
-import { sortBy, prop, pipe, toLower, identity } from 'ramda';
+import { sortBy, prop, pipe, equals, ifElse, toLower, identity } from 'ramda';
 import List from '../components/List';
 import { deleteContact, setSortProp } from '../actions/actionCreators';
 
-const sortFn = (p, list) => sortBy(pipe(prop(p), p === 'name' ? toLower : identity), list);
+const sortFn = (p, list) => 
+  sortBy(pipe(
+    prop(p), 
+    ifElse(equals('name'), toLower, identity),
+  ), list);
 
 const mapStateToProps = ({ contacts }) => ({
-  loading: contacts.loading,
-  loaded: contacts.loaded,
   error: contacts.error,
   sortBy: contacts.sortBy,
   newContact: contacts.newContact,
