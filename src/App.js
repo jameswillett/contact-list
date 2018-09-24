@@ -9,4 +9,8 @@ const App = ({ location }) => (
   </div>
 )
 
-export default connect(state => state)(App);
+const mapStateToProps = state => ({ 
+  location: state.location,
+});
+
+export default connect(mapStateToProps)(App);
